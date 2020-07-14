@@ -1,21 +1,10 @@
-<!doctype html>
-<html lang="en">
-    <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- Style.css -->
-    <link rel="stylesheet" href="css/style.css">
-    <title>Flack</title>
-    </head>
-<body>
+{% extends 'layout.html' %}
+{% block body %}
     <div class="container messenger mt-5">
         <div class="row">
             <div class="col-md-5 pt-3 bg-light">
                 <h1>FLACK</h1>
+                <p class="dname"></p>
                 <!-- Create New Channel Button -->
                 <section class="create-new-channel">
                     <button class="btn btn-dark">Create New Channel</button>
@@ -65,50 +54,31 @@
                 </section>
             </div>
             <!-- End Channels -->
+
+
+
             <!-- Messenger -->
             <div class="col-md-7 bg-dark p-3">
                 <!-- Taking input -->
                 <div class="sending-message position-absolute fixed-bottom p-3">
-                    <form action="" class="d-flex">
+                    <form action="{{ url_for('channels')}}" class="d-flex" method="post" id="message-form">
                         <input type="text" name="message" id="message" class="form-control mr-3">
-                        <button type="submit" class="btn btn-light">Send</button>
+                        <button type="submit" class="btn btn-light" id="send">Send</button>
                     </form>
                 </div>
                 <div class="messaging d-flex flex-column">
-                    <div class="message bg-light rounded mt-2">
-                        <p class="text-wrap">
-                            This will be the very first message.
-                            This will be the very first message.
-                            This will be the very first message.
+                    <!-- <div class="mt-auto message bg-light rounded mt-2">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima rem, vero quod culpa ut voluptatum, blanditiis mollitia nobis dignissimos aspernatur, eveniet totam vel repellendus maiores beatae officia laboriosam velit sequi!
                         </p>
                         <p class="bg-dark text-light p-1 rounded">ghostAgentK - <span class="text-info">21:16 PM</span></p>
-                    </div>
-                    <div class="message bg-light rounded mt-2 my_message">
-                        <p class="text-wrap">
-                            This will be the very first message.
-                        </p>
-                        <p class="bg-dark text-light p-1 rounded">ghostAgentK - <span class="text-info">21:16 PM</span></p>
-                    </div>
-                    <div class="message bg-light rounded mt-2">
-                        <p class="text-wrap">
-                            This will be the very first message.
-                            This will be the very first message.
-                            This will be the very first message.
-                        </p>
-                        <p class="bg-dark text-light p-1 rounded">ghostAgentK - <span class="text-info">21:16 PM</span></p>
-                    </div>
-                    <div class="message bg-light rounded mt-2 my_message">
-                        <p class="text-wrap">
-                            This will be the very first message.
-                        </p>
-                        <p class="bg-dark text-light p-1 rounded">ghostAgentK - <span class="text-info">21:16 PM</span></p>
-                    </div>
+                    </div> -->
                 </div>
 
 
             </div>
         </div>
     </div>
-
-</body>
-</html>
+    <!-- Socket.IO library -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+{% endblock body %}

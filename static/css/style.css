@@ -21,8 +21,8 @@ body {
   min-height: 500px;
 }
 
-.container .row {
-  height: 600px;
+.text-break {
+  word-wrap: break-word;
 }
 
 .container .row .col-md-5 {
@@ -43,7 +43,7 @@ body {
 }
 
 .container .row .col-md-7 .messaging {
-  height: 500px;
+  height: 550px;
   overflow: auto;
 }
 
@@ -53,7 +53,6 @@ body {
 }
 
 .container .row .col-md-7 .messaging .my_message {
-  margin-left: auto;
   background-color: floralwhite;
 }
 /*# sourceMappingURL=style.css.map */
