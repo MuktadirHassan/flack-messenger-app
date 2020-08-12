@@ -2,6 +2,10 @@
 body{
     font-family: 'Quicksand', sans-serif;
 }
+$dark: #343a40;
+$light: #f8f9fa;
+$grey: #6c757d;
+
 ::-webkit-scrollbar {
     width: 7px;
 }
@@ -14,37 +18,74 @@ body{
     background-color: dimgray;
     outline: 1px solid slategrey;
 }
-.d-name{
-    min-height: 500px;
+
+// Index.html
+.viewport {
+    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-card {
+    max-width: 400px;
+    box-shadow: 0px 20px 40px rgb(194, 194, 194);
 }
 
-.container{
-    .row{
-        height: 600px;
-        .col-md-5{
-            border-radius: 5px 0 0 5px;
-            .prev-channels{
-                height: 450px;
-                overflow: auto;
-                .nav a{
-                    color: dimgray;
-                }
-            }
+// Channels.html
+.messenger {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    justify-content: flex-end;
+    .messages{
+        overflow-y: auto;
+    }
+    .message{
+        margin-top: 5px;
+        max-width: 250px;
+        padding: 7px 12px 8px;
+        animation-duration: 0.3s;
+        animation-name: fly-in;
+        background-color: $grey;
+        border-radius: 5px;
+        .info {
+            background-color: $light;
+            color: $dark;
+            border-radius: 2px;
+            padding: 2px;
         }
-        .col-md-7{
-            border-radius: 0px 5px 5px 0px;
-            .messaging{
-                height: 500px;
-                overflow: auto;
-                .message{
-                    max-width: 250px;
-                    padding: 7px 12px 8px;
-                }
-                .my_message{
-                    margin-left: auto;
-                    background-color: floralwhite;
-                }
+    }
+    .message--user {
+        margin-left: auto;
+        background-color: $dark;
+        color: $light;  
+    }
+    .send-message {
+        form {
+            display: flex;
+            margin: 10px 0px;
+            input {
+                flex-grow: 1;
+                padding: 7px 15px;
+                margin-right: 10px;
+            }
+            button {
+                padding: 10px 20px;
+                border: none;
             }
         }
     }
+    
 }
+
+@keyframes fly-in {
+    0% {
+      transform: scale(0.85) translateY(10%);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  }
